@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		172B2FD41FE6C1F700539774 /* launchctl in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC9968FF1FE663B700A4EDB9 /* launchctl */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		172B2FD51FE6C1F700539774 /* tar in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D37B1FE6A9E800091EC1 /* tar */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		172B2FD51FE6C1F700539774 /* tar in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D37B1FE6A9E800091EC1 /* tar */; };
 		172B2FD61FE6C1F700539774 /* reload in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D3801FE6AD1300091EC1 /* reload */; };
 		172B2FD71FE6C1F700539774 /* 0.reload.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D3821FE6AF9100091EC1 /* 0.reload.plist */; };
 		172B2FD81FE6C1F700539774 /* dropbear.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D3841FE6AFC200091EC1 /* dropbear.plist */; };

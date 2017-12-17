@@ -95,6 +95,8 @@ uint32_t swap_uint32( uint32_t val )
 }
 
 uint8_t *getSHA256(uint8_t* code_dir) {
+    if (code_dir == NULL) return 0;
+    
 	uint8_t *out = malloc(CC_SHA256_DIGEST_LENGTH);
 	
 	uint32_t* code_dir_int = (uint32_t*)code_dir;
@@ -115,7 +117,7 @@ uint8_t *getSHA256(uint8_t* code_dir) {
 
 #include <mach-o/loader.h>
 uint8_t *getCodeDirectory(const char* name) {
-	// Assuming it is a macho
+	// Assuming it is a macho, with a LC_CODE_SIGNATURE instruction
 	
 	FILE* fd = fopen(name, "r");
 	
@@ -139,7 +141,7 @@ uint8_t *getCodeDirectory(const char* name) {
 			fread(cd, size_cs, 1, fd);
 			return cd;
 		} else {
-			//printf("%02x\n", cmd.cmd);
+			printf("%02x\n", cmd.cmd);
 			off += cmd.cmdsize;
 		}
 	}
@@ -235,6 +237,36 @@ static uint64_t kalloc(vm_size_t size){
 	mach_vm_address_t address = 0;
 	mach_vm_allocate(tfpzero, (mach_vm_address_t *)&address, size, VM_FLAGS_ANYWHERE);
 	return address;
+}
+
+void inject_trust(const char *path) {
+    // TODO: try to optimize by finding trustcache once and/or adding more than one hash in chain
+    uint64_t tc = find_trustcache();
+    printf("trust cache at: %016llx\n", rk64(tc));
+    
+    typedef char hash_t[20];
+    
+    struct trust_chain {
+        uint64_t next;                 // +0x00 - the next struct trust_mem
+        unsigned char uuid[16];        // +0x08 - The uuid of the trust_mem (it doesn't seem important or checked apart from when importing a new trust chain)
+        unsigned int count;            // +0x18 - Number of hashes there are
+        hash_t hash[1];                // +0x1C - The hashes
+    };
+    
+    struct trust_chain fake_chain;
+    
+    fake_chain.next = rk64(tc);
+    *(uint64_t *)&fake_chain.uuid[0] = 0xabadbabeabadbabe;
+    *(uint64_t *)&fake_chain.uuid[8] = 0xabadbabeabadbabe;
+    fake_chain.count = 1;
+    
+    uint8_t *hash = getSHA256(getCodeDirectory(path));
+    memmove(fake_chain.hash[0], hash, 20);
+    free(hash);
+    
+    uint64_t kernel_trust = kalloc(sizeof(fake_chain));
+    kwrite(kernel_trust, &fake_chain, sizeof(fake_chain));
+    wk64(tc, kernel_trust);
 }
 
 void let_the_fun_begin(mach_port_t tfp0, mach_port_t user_client) {
@@ -416,9 +448,9 @@ do { \
             // Untar the archive
             char* tarPath = "/bin/tar";
             
-            printf("Tar _is not_ codesigned yet. The AMFI 'patch' is under this code, meaning the hash will not be trusted, and the tar binary will not run\n The reason this abort is here is because there is no possible way this can continue successfully. I would have moved the amfi 'patch' to here as a temporary fix, but this crashes because the tar binary has no LC_CODE_SIGNATURE instruction, for some reason, causing the sha function to crash.\n.");
-            abort();
-
+            // FIXME: - this errors, for some reason (can't find LC_CODE_SIGNATURE)
+            // TODO: - Do this for all the binaries?
+            inject_trust(tarPath);
             posix_spawn(&pd, tarPath, 0, 0, (char**)&(const char*[]){tarPath, "--preserve-permissions", "--no-overwrite-dir", "-xvf", bootstrapPath(), NULL}, NULL);
             // Wait until tar has finished
             waitpid(pd, 0, 0);
@@ -457,43 +489,12 @@ do { \
         printf("Done bootstrapping!\n");
     }
     
-	uint64_t tc = find_trustcache();
-	printf("trust cache at: %016llx\n", rk64(tc));
-	
 //	uint8_t launchd[19];
 //	kread(find_amficache()+0x11358, launchd, 19);
 //
 //	uint8_t really[19] = {0xdb, 0x75, 0x57, 0x7d, 0x9c, 0x5c, 0xc2, 0xe7, 0x83, 0x7d, 0xa8, 0x66, 0x6a, 0x05, 0xc7, 0x17, 0x7e, 0xdb, 0xd3};
 //
 //	printf("%d\n", memcmp(launchd, really, 19)); // == 0
-	
-	typedef char hash_t[20];
-	
-	struct trust_chain {
-		uint64_t next; 				// +0x00 - the next struct trust_mem
-		unsigned char uuid[16];		// +0x08 - The uuid of the trust_mem (it doesn't seem important or checked apart from when importing a new trust chain)
-		unsigned int count;			// +0x18 - Number of hashes there are
-		hash_t hash[2];		// +0x1C - The hashes
-	};
-	
-	struct trust_chain fake_chain;
-	
-	fake_chain.next = rk64(tc);
-	*(uint64_t *)&fake_chain.uuid[0] = 0xabadbabeabadbabe;
-	*(uint64_t *)&fake_chain.uuid[8] = 0xabadbabeabadbabe;
-	fake_chain.count = 2;
-	
-    // Only bother getting tar's hash in the cache for now
-    // Temp fix until ninja adds a real amfi bypass
-    uint8_t *tarHash = getSHA256(getCodeDirectory("/bin/tar"));
-    
-    // Order doesn't matter
-    memmove(fake_chain.hash[0], tarHash, 20);
-	
-	uint64_t kernel_trust = kalloc(sizeof(fake_chain));
-	kwrite(kernel_trust, &fake_chain, sizeof(fake_chain));
-	// Comment this line out to see `amfid` saying there is no signature on tar
-	wk64(tc, kernel_trust);
 	
 	int tries = 3;
 	while (tries-- > 0) {
