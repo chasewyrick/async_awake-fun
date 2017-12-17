@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172B2FD41FE6C1F700539774 /* launchctl in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC9968FF1FE663B700A4EDB9 /* launchctl */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		172B2FD51FE6C1F700539774 /* tar in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D37B1FE6A9E800091EC1 /* tar */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		172B2FD61FE6C1F700539774 /* reload in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D3801FE6AD1300091EC1 /* reload */; };
+		172B2FD71FE6C1F700539774 /* 0.reload.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D3821FE6AF9100091EC1 /* 0.reload.plist */; };
+		172B2FD81FE6C1F700539774 /* dropbear.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1786D3841FE6AFC200091EC1 /* dropbear.plist */; };
+		172B2FDB1FE6C27A00539774 /* bootstrap.tar in CopyFiles */ = {isa = PBXBuildFile; fileRef = 172B2FD91FE6C26E00539774 /* bootstrap.tar */; };
 		B003EB351FC583CB00C58441 /* kmem.c in Sources */ = {isa = PBXBuildFile; fileRef = B003EB331FC583CA00C58441 /* kmem.c */; };
 		B003EB381FC5863800C58441 /* find_port.c in Sources */ = {isa = PBXBuildFile; fileRef = B003EB361FC5863800C58441 /* find_port.c */; };
 		B003EB3B1FC58F4900C58441 /* kdbg.c in Sources */ = {isa = PBXBuildFile; fileRef = B003EB391FC58F4900C58441 /* kdbg.c */; };
@@ -18,20 +24,39 @@
 		B07A02491FB09B6F0018ACE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07A02471FB09B6F0018ACE5 /* LaunchScreen.storyboard */; };
 		B07A024C1FB09B6F0018ACE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A024B1FB09B6F0018ACE5 /* main.m */; };
 		B07A02541FB09C3D0018ACE5 /* async_wake.c in Sources */ = {isa = PBXBuildFile; fileRef = B07A02521FB09C3D0018ACE5 /* async_wake.c */; };
-		B0D79D621FDED41000B4F233 /* README in Resources */ = {isa = PBXBuildFile; fileRef = B0D79D611FDED41000B4F233 /* README */; };
 		B0EF11141FCC6F9C00C1D14E /* kcall.c in Sources */ = {isa = PBXBuildFile; fileRef = B0EF11121FCC6F9C00C1D14E /* kcall.c */; };
 		B0EF11171FCC784B00C1D14E /* symbols.c in Sources */ = {isa = PBXBuildFile; fileRef = B0EF11151FCC784B00C1D14E /* symbols.c */; };
 		B0F5AA3F1FDE87E90073FD88 /* early_kalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */; };
 		BC8B64C41FE5252F00EDF749 /* fun_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B64C31FE5252F00EDF749 /* fun_objc.m */; };
 		BC8EE46C1FE272CF00402F32 /* fun.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46A1FE272CF00402F32 /* fun.c */; };
 		BC8EE46F1FE2B4E800402F32 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */; };
-		BC9969001FE663B700A4EDB9 /* launchctl in Resources */ = {isa = PBXBuildFile; fileRef = BC9968FF1FE663B700A4EDB9 /* launchctl */; };
-		BC9969021FE6659C00A4EDB9 /* test_fsigned.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */; };
 		BC9969041FE66CE200A4EDB9 /* ent.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9969031FE66CE200A4EDB9 /* ent.plist */; };
-		BC99690E1FE673EF00A4EDB9 /* test_fsigned in Resources */ = {isa = PBXBuildFile; fileRef = BC99690D1FE673EE00A4EDB9 /* test_fsigned */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		172B2FD31FE6C1DA00539774 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				172B2FDB1FE6C27A00539774 /* bootstrap.tar in CopyFiles */,
+				172B2FD41FE6C1F700539774 /* launchctl in CopyFiles */,
+				172B2FD51FE6C1F700539774 /* tar in CopyFiles */,
+				172B2FD61FE6C1F700539774 /* reload in CopyFiles */,
+				172B2FD71FE6C1F700539774 /* 0.reload.plist in CopyFiles */,
+				172B2FD81FE6C1F700539774 /* dropbear.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		172B2FD91FE6C26E00539774 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
+		1786D37B1FE6A9E800091EC1 /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
+		1786D3801FE6AD1300091EC1 /* reload */ = {isa = PBXFileReference; lastKnownFileType = text; path = reload; sourceTree = "<group>"; };
+		1786D3821FE6AF9100091EC1 /* 0.reload.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = 0.reload.plist; sourceTree = "<group>"; };
+		1786D3841FE6AFC200091EC1 /* dropbear.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dropbear.plist; sourceTree = "<group>"; };
 		B003EB331FC583CA00C58441 /* kmem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmem.c; sourceTree = "<group>"; };
 		B003EB341FC583CA00C58441 /* kmem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmem.h; sourceTree = "<group>"; };
 		B003EB361FC5863800C58441 /* find_port.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = find_port.c; sourceTree = "<group>"; };
@@ -60,7 +85,6 @@
 		B0EF11161FCC784B00C1D14E /* symbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = symbols.h; sourceTree = "<group>"; };
 		B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = early_kalloc.c; sourceTree = "<group>"; };
 		B0F5AA3E1FDE87E80073FD88 /* early_kalloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = early_kalloc.h; sourceTree = "<group>"; };
-		BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootstrap.dmg; sourceTree = "<group>"; };
 		BC8B64C31FE5252F00EDF749 /* fun_objc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fun_objc.m; sourceTree = "<group>"; };
 		BC8B64C51FE5253B00EDF749 /* fun_objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fun_objc.h; sourceTree = "<group>"; };
 		BC8EE46A1FE272CF00402F32 /* fun.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fun.c; sourceTree = "<group>"; };
@@ -68,9 +92,7 @@
 		BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
 		BC8EE46E1FE2B4E800402F32 /* patchfinder64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
 		BC9968FF1FE663B700A4EDB9 /* launchctl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = launchctl; sourceTree = "<group>"; };
-		BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_fsigned.plist; sourceTree = "<group>"; };
 		BC9969031FE66CE200A4EDB9 /* ent.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ent.plist; sourceTree = "<group>"; };
-		BC99690D1FE673EE00A4EDB9 /* test_fsigned */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = test_fsigned; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +106,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1786D37D1FE6A9F400091EC1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B07A02421FB09B6F0018ACE5 /* Main.storyboard */,
+				B07A02471FB09B6F0018ACE5 /* LaunchScreen.storyboard */,
+				B07A02401FB09B6F0018ACE5 /* ViewController.m */,
+				B07A023F1FB09B6F0018ACE5 /* ViewController.h */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1786D37E1FE6AA1300091EC1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				172B2FD91FE6C26E00539774 /* bootstrap.tar */,
+				BC9968FF1FE663B700A4EDB9 /* launchctl */,
+				1786D37B1FE6A9E800091EC1 /* tar */,
+				1786D3801FE6AD1300091EC1 /* reload */,
+				1786D3821FE6AF9100091EC1 /* 0.reload.plist */,
+				1786D3841FE6AFC200091EC1 /* dropbear.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1786D37F1FE6AA2D00091EC1 /* Exploit */ = {
+			isa = PBXGroup;
+			children = (
+				B04E250A1FCF083A00F09CCE /* arm64_state.h */,
+				B07A02521FB09C3D0018ACE5 /* async_wake.c */,
+				B07A02531FB09C3D0018ACE5 /* async_wake.h */,
+				B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */,
+				B0F5AA3E1FDE87E80073FD88 /* early_kalloc.h */,
+				B003EB361FC5863800C58441 /* find_port.c */,
+				B003EB371FC5863800C58441 /* find_port.h */,
+				B0EF11121FCC6F9C00C1D14E /* kcall.c */,
+				B0EF11131FCC6F9C00C1D14E /* kcall.h */,
+				B003EB391FC58F4900C58441 /* kdbg.c */,
+				B003EB3A1FC58F4900C58441 /* kdbg.h */,
+				B003EB331FC583CA00C58441 /* kmem.c */,
+				B003EB341FC583CA00C58441 /* kmem.h */,
+				B04E25071FCD6DB300F09CCE /* kutils.c */,
+				B04E25081FCD6DB300F09CCE /* kutils.h */,
+				B0EF11151FCC784B00C1D14E /* symbols.c */,
+				B0EF11161FCC784B00C1D14E /* symbols.h */,
+			);
+			path = Exploit;
+			sourceTree = "<group>";
+		};
 		B07A02301FB09B6F0018ACE5 = {
 			isa = PBXGroup;
 			children = (
@@ -103,44 +173,22 @@
 		B07A023B1FB09B6F0018ACE5 /* async_wake_ios */ = {
 			isa = PBXGroup;
 			children = (
-				BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */,
+				BCF206541FE32E1D0081CBE5 /* The Fun Part */,
+				1786D37D1FE6A9F400091EC1 /* UI */,
+				1786D37F1FE6AA2D00091EC1 /* Exploit */,
+				1786D37E1FE6AA1300091EC1 /* Resources */,
 				B07A023C1FB09B6F0018ACE5 /* AppDelegate.h */,
-				BC99690D1FE673EE00A4EDB9 /* test_fsigned */,
 				B07A023D1FB09B6F0018ACE5 /* AppDelegate.m */,
-				BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */,
-				B04E250A1FCF083A00F09CCE /* arm64_state.h */,
 				B07A02451FB09B6F0018ACE5 /* Assets.xcassets */,
-				B07A02521FB09C3D0018ACE5 /* async_wake.c */,
-				B07A02531FB09C3D0018ACE5 /* async_wake.h */,
-				BC9968FF1FE663B700A4EDB9 /* launchctl */,
-				B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */,
-				B0F5AA3E1FDE87E80073FD88 /* early_kalloc.h */,
-				B003EB361FC5863800C58441 /* find_port.c */,
-				B003EB371FC5863800C58441 /* find_port.h */,
 				B07A024A1FB09B6F0018ACE5 /* Info.plist */,
-				B0EF11121FCC6F9C00C1D14E /* kcall.c */,
-				B0EF11131FCC6F9C00C1D14E /* kcall.h */,
-				B003EB391FC58F4900C58441 /* kdbg.c */,
-				B003EB3A1FC58F4900C58441 /* kdbg.h */,
-				B003EB331FC583CA00C58441 /* kmem.c */,
-				B003EB341FC583CA00C58441 /* kmem.h */,
-				B04E25071FCD6DB300F09CCE /* kutils.c */,
-				B04E25081FCD6DB300F09CCE /* kutils.h */,
-				B07A02471FB09B6F0018ACE5 /* LaunchScreen.storyboard */,
 				B07A024B1FB09B6F0018ACE5 /* main.m */,
-				B07A02421FB09B6F0018ACE5 /* Main.storyboard */,
 				B0D79D611FDED41000B4F233 /* README */,
-				B0EF11151FCC784B00C1D14E /* symbols.c */,
-				B0EF11161FCC784B00C1D14E /* symbols.h */,
-				BCF206541FE32E1D0081CBE5 /* the_fun_part */,
-				B07A023F1FB09B6F0018ACE5 /* ViewController.h */,
-				B07A02401FB09B6F0018ACE5 /* ViewController.m */,
 				BC9969031FE66CE200A4EDB9 /* ent.plist */,
 			);
 			path = async_wake_ios;
 			sourceTree = "<group>";
 		};
-		BCF206541FE32E1D0081CBE5 /* the_fun_part */ = {
+		BCF206541FE32E1D0081CBE5 /* The Fun Part */ = {
 			isa = PBXGroup;
 			children = (
 				BC8EE46A1FE272CF00402F32 /* fun.c */,
@@ -150,7 +198,7 @@
 				BC8B64C31FE5252F00EDF749 /* fun_objc.m */,
 				BC8B64C51FE5253B00EDF749 /* fun_objc.h */,
 			);
-			path = the_fun_part;
+			path = "The Fun Part";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +211,7 @@
 				B07A02351FB09B6F0018ACE5 /* Sources */,
 				B07A02361FB09B6F0018ACE5 /* Frameworks */,
 				B07A02371FB09B6F0018ACE5 /* Resources */,
+				172B2FD31FE6C1DA00539774 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -211,14 +260,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC9969021FE6659C00A4EDB9 /* test_fsigned.plist in Resources */,
-				B0D79D621FDED41000B4F233 /* README in Resources */,
 				BC9969041FE66CE200A4EDB9 /* ent.plist in Resources */,
-				BC99690E1FE673EF00A4EDB9 /* test_fsigned in Resources */,
 				B07A02491FB09B6F0018ACE5 /* LaunchScreen.storyboard in Resources */,
 				B07A02461FB09B6F0018ACE5 /* Assets.xcassets in Resources */,
 				B07A02441FB09B6F0018ACE5 /* Main.storyboard in Resources */,
-				BC9969001FE663B700A4EDB9 /* launchctl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 88R89D928E;
+				DEVELOPMENT_TEAM = AHEHG4CE9W;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = async_wake_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -401,7 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 88R89D928E;
+				DEVELOPMENT_TEAM = AHEHG4CE9W;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = async_wake_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
